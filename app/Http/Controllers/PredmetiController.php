@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Predmeti;
+use App\Models\Predmet;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -10,32 +10,32 @@ class PredmetiController extends Controller
 {
     public function index()
     {
-        return Predmeti::with('profesori')->get();
+        return Predmet::with('profesor')->get();
     }
 
     public function store(Request $request)
     {
-        $predmeti = new Predmeti();
-        $predmeti->naziv = $request->naziv;
-        $predmeti->opis = $request->opis;
-        $predmeti->profesor_id = $request->profesor_id;
-        $predmeti->save();
+        $predmet = new Predmet();
+        $predmet->naziv = $request->naziv;
+        $predmet->opis = $request->opis;
+        $predmet->profesor_id = $request->profesor_id;
+        $predmet->save();
 
         return 'Dodano';
     }
 
     public function edit(Request $request) {
-        $predmeti = Predmeti::find($request->id);
-        $predmeti->naziv = $request->naziv;
-        $predmeti->opis = $request->opis;
-        $predmeti->profesor_id = $request->profesor_id;
-        $predmeti->save();
+        $predmet = Predmet::find($request->id);
+        $predmet->naziv = $request->naziv;
+        $predmet->opis = $request->opis;
+        $predmet->profesor_id = $request->profesor_id;
+        $predmet->save();
 
         return 'Uređeno';
     }
 
     public function destroy($id) {
-        Predmeti::find($id)->delete();
+        Predmet::find($id)->delete();
 
         return 'Izbrisano';
     }

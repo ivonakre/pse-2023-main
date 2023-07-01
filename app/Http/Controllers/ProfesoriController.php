@@ -2,45 +2,45 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Profesori;
+use App\Models\Profesor;
 use Illuminate\Http\Request;
 
 class ProfesoriController extends Controller
 {
     public function index()
     {
-        return Profesori::all();
+        return Profesor::all();
     }
 
     public function store(Request $request)
     {
-        $profesori = new Profesori();
-        $profesori->ime = $request->ime;
-        $profesori->prezime = $request->prezime;
-        $profesori->korisnicko_ime = $request->korisnicko_ime;
-        $profesori->lozinka = $request->lozinka;
-        $profesori->stalno_uposlen = $request->stalno_uposlen;
-        $profesori->spol = $request->spol;
-        $profesori->save();
+        $profesor = new Profesor();
+        $profesor->ime = $request->ime;
+        $profesor->prezime = $request->prezime;
+        $profesor->korisnicko_ime = $request->korisnicko_ime;
+        $profesor->lozinka = $request->lozinka;
+        $profesor->stalno_uposlen = $request->stalno_uposlen;
+        $profesor->spol = $request->spol;
+        $profesor->save();
 
         return 'Dodano';
     }
 
     public function edit(Request $request) {
-        $profesori = Profesori::find($request->id);
-        $profesori->ime = $request->ime;
-        $profesori->prezime = $request->prezime;
-        $profesori->korisnicko_ime = $request->korisnicko_ime;
-        $profesori->lozinka = $request->lozinka;
-        $profesori->stalno_uposlen = $request->stalno_uposlen;
-        $profesori->spol = $request->spol;
-        $profesori->save();;
+        $profesor = Profesor::find($request->id);
+        $profesor->ime = $request->ime;
+        $profesor->prezime = $request->prezime;
+        $profesor->korisnicko_ime = $request->korisnicko_ime;
+        $profesor->lozinka = $request->lozinka;
+        $profesor->stalno_uposlen = $request->stalno_uposlen;
+        $profesor->spol = $request->spol;
+        $profesor->save();;
 
         return 'Uređeno';
     }
 
     public function destroy($id) {
-        Profesori::find($id)->delete();
+        Profesor::find($id)->delete();
 
         return 'Izbrisano';
     }

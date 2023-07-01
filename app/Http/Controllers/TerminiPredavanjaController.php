@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\TerminiPredavanja;
+use App\Models\TerminPredavanja;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -10,32 +10,32 @@ class TerminiPredavanjaController extends Controller
 {
     public function index()
     {
-        return TerminiPredavanja::with('ucionica', 'predmeti')->get();
+        return TerminPredavanja::with('ucionica', 'predmeti')->get();
     }
 
     public function store(Request $request)
     {
-        $terminipredavanja = new TerminPredavanja();
-        $terminipredavanja->satnica = $request->satnica;
-        $terminipredavanja->ucionica_id = $request->ucionica_id;
-        $terminipredavanja->predmet_id = $request->predmet_id;
-        $terminipredavanja->save();
+        $terminpredavanja = new TerminPredavanja();
+        $terminpredavanja->satnica = $request->satnica;
+        $terminpredavanja->ucionica_id = $request->ucionica_id;
+        $terminpredavanja->predmet_id = $request->predmet_id;
+        $terminpredavanja->save();
 
         return 'Dodano';
     }
 
     public function edit(Request $request) {
-        $terminipredavanja = TerminiPredavanja::find($request->id);
-        $terminipredavanja->satnica = $request->satnica;
-        $terminipredavanja->ucionica_id = $request->ucionica_id;
-        $terminipredavanja->predmet_id = $request->predmet_id;
-        $terminipredavanja->save();
+        $terminpredavanja = TerminPredavanja::find($request->id);
+        $terminpredavanja->satnica = $request->satnica;
+        $terminpredavanja->ucionica_id = $request->ucionica_id;
+        $terminpredavanja->predmet_id = $request->predmet_id;
+        $terminpredavanja->save();
 
         return 'Uređeno';
     }
 
     public function destroy($id) {
-        TerminiPredavanja::find($id)->delete();
+        TerminPredavanja::find($id)->delete();
 
         return 'Izbrisano';
     }
