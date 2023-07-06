@@ -10,7 +10,7 @@ class TerminiPredavanjaController extends Controller
 {
     public function index()
     {
-        return TerminPredavanja::with('ucionica', 'predmeti')->get();
+        return TerminPredavanja::with('ucionica', 'predmet')->get();
     }
 
     public function store(Request $request)

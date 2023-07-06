@@ -2,10 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\TerminPredavanjaController;
-use App\Http\Controllers\PredmetController;
+use App\Http\Controllers\TerminiPredavanjaController;
+use App\Http\Controllers\PredmetiController;
 use App\Http\Controllers\UcionicaController;
-use App\Http\Controllers\ProfesorController;
+use App\Http\Controllers\ProfesoriController;
 
 /*
 |--------------------------------------------------------------------------

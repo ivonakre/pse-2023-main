@@ -16,8 +16,9 @@ class Predmet extends Model
         'profesor_id'
     ];
 
-    public function terminipredavanja()
+    public function profesor()
     {
-        return $this->hasMany(TerminPredavanja::class, 'predmet_id');
+        return $this->belongsTo(Profesor::class, 'profesor_id');
     }
+
 }
